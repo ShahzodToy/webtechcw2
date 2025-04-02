@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h2 #{title}
+  ul(class='flashcard-list')
+    each flashcard in flashcards
+      li(class='flashcard-item')
+        div(class='flashcard-content')
+          strong(class='flashcard-word')= flashcard.word
+          p(class='flashcard-translation')= flashcard.translation
+        div(class='flashcard-actions')
+          a(href='/flashcards/update/' + flashcard.id, class='edit-btn') Edit
+          form(action='/flashcards/delete/' + flashcard.id  method='POST', style='display:inline')
+            button(type='submit', class='delete-btn', onclick='return confirm("Are you sure?")') Delete
+  a(href='/flashcards/create', class='add-btn') Add New Flashcard

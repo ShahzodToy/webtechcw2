@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Create a Flashcard
+  form(action='/flashcards/create' method='POST', class='flashcard-form')
+    div(class='form-group')
+      label(for='word') Word:
+      input(type='text' name='word' required class='form-control')
+    div(class='form-group')
+      label(for='translation') Translation:
+      input(type='text' name='translation' required class='form-control')
+    div(class='form-group')
+      label(for='topic') Topic:
+      input(type='text' name='topic' required class='form-control')
+    button(type='submit', class='submit-btn') Create Flashcard

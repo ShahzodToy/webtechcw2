@@ -1,23 +1,29 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const flashcardRoutes = require("./routes/flashcards");
+const express = require('express');
 const app = express();
+const path = require('path');
 
-// Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// Set the view engine to Pug
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
-// View Engine
-app.set("view engine", "pug");
+// Middleware to parse JSON bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use("/flashcards", flashcardRoutes);
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) => {
-    res.render("index", { title: "Language Learning App" });
+// Import routes
+const flashcardsRoutes = require('./routes/flashcards');
+app.use('/flashcards', flashcardsRoutes);
+
+// Default route (home)
+app.get('/', (req, res) => {
+    res.render('index', { title: 'Flashcard Learning App' });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Start the server
+const port = 3000;
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
 });

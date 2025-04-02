@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  h1 Update Flashcard
+  form(action='/flashcards/update/' + card.id, method='POST', class='flashcard-form')
+    div(class='form-group')
+      label(for='word') Word:
+      input(type='text' name='word' value=card.word required class='form-control')
+    div(class='form-group')
+      label(for='translation') Translation:
+      input(type='text' name='translation' value=card.translation required class='form-control')
+    div(class='form-group')
+      label(for='topic') Topic:
+      input(type='text' name='topic' value=card.topic required class='form-control')
+    button(type='submit', class='submit-btn') Update Flashcard
