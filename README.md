@@ -30,7 +30,7 @@ A simple web application for creating, updating, deleting, and managing flashcar
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/flashcard-learning-app.git
+    git clone https://github.com/ShahzodToy/webtechcw2.git
     cd flashcard-learning-app
     ```
 
