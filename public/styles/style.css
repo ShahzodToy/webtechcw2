@@ -1,4 +1,4 @@
-/* General Styles */
+/*Main style for flashcard*/
 * {
   margin: 0;
   padding: 0;
@@ -170,6 +170,8 @@ input.form-control:focus {
 .submit-btn:active {
   background-color: #1e7e34;
 }
+
+
 /* Flashcard Form Styles */
 .flashcard-form {
   background-color: #fff;

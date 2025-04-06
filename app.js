@@ -2,27 +2,27 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// Set the view engine to Pug
+// working on the pub for frontend case
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middleware to parse JSON bodies
+// middleware to parse JSON bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
+// working on the static files 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Import routes
+// importing routes
 const flashcardsRoutes = require('./routes/flashcards');
 app.use('/flashcards', flashcardsRoutes);
 
-// Default route (home)
+// creating default / page for it
 app.get('/', (req, res) => {
     res.render('index', { title: 'Flashcard Learning App' });
 });
 
-// Start the server
+// working 3000 port
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

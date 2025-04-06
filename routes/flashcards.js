@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const flashcardsController = require('../controllers/flashcards');
 
-// Flashcard Routes
-router.get('/', flashcardsController.list);         // List all flashcards
-router.get('/create', flashcardsController.createForm);  // Form to create a new flashcard
-router.post('/create', flashcardsController.create);  // Create a new flashcard
-router.get('/update/:id', flashcardsController.updateForm); // Form to update a flashcard
-router.post('/update/:id', flashcardsController.update);  // Update flashcard
-router.post('/delete/:id', flashcardsController.delete);  // Delete flashcard
+// only flashcards
+router.get('/', flashcardsController.list); // list of flashcards
+router.get('/create', flashcardsController.createForm);  // adding flashcard form
+router.post('/create', flashcardsController.create);  // adding flashcard
+router.get('/update/:id', flashcardsController.updateForm); // update flashcard for form 
+router.post('/update/:id', flashcardsController.update);  // update flashcard real
+router.post('/delete/:id', flashcardsController.delete);  // delete flashcard
 
 module.exports = router;
