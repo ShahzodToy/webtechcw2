@@ -46,6 +46,12 @@ A simple web application for creating, updating, deleting, and managing flashcar
 
     This will start the server on `http://localhost:3000`.
 
+3. **Deployed app here:**
+    ```bash
+    http://46.250.231.53:3000/
+    ```
+
+
 ## Folder Structure
 
 ```bash
